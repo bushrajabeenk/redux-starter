@@ -6,9 +6,9 @@ import { loginAPI } from "../store/auth/auth.actions";
 const Login = () => {
   const dispatch = useDispatch();
 
-  const location = useLocation();
-
   const navigate = useNavigate();
+
+  const location = useLocation();
 
   const { isAuth } = useSelector((state) => state.auth);
 
@@ -32,8 +32,9 @@ const Login = () => {
 
   useEffect(() => {
     if (isAuth) {
-      console.log(location);
+      //console.log(location);
       navigate(location.pathname || "/", { replace: true });
+      // <Navigate to={`location.pathname || "/"`} replace={true} />
     }
   }, [isAuth]);
   return (

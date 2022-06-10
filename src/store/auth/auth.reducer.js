@@ -11,7 +11,7 @@ const initState = {
   loading: false,
   error: false,
   // isAuth: token ? true : false,
-  // to conver string to boolean value
+  // to convert string to boolean value
   isAuth: !!token,
   token: token,
 };

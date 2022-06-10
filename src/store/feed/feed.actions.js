@@ -9,7 +9,7 @@ import {
 export const getFeedAPI = () => (dispatch) => {
   dispatch({ type: GET_FEED_LOADING });
   axios
-    .get("http://localhost:8080/feeds")
+    .get("http://localhost:8080/feed")
     .then((r) => {
       dispatch({ type: GET_FEED_SUCCESS, payload: r.data });
     })
