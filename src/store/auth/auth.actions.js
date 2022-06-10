@@ -8,11 +8,17 @@ import {
 
 export const login = (data) => (dispatch) => {
   dispatch({ type: LOGIN_LOADING });
-  axios.post("https://reqres.in/api/login", data).then((r) => {
-    dispatch({ type: LOGIN_SUCCESS, payload: r.data });
-  });
-
-  dispatch({ type: LOGIN_ERROR });
+  axios
+    .post("https://reqres.in/api/login", {
+      email: data.email,
+      password: data.password,
+    })
+    .then((r) => {
+      dispatch({ type: LOGIN_SUCCESS, payload: r.data });
+    })
+    .catch(() => {
+      dispatch({ type: LOGIN_ERROR });
+    });
 };
 
 export const logout = () => ({ type: LOGOUT });
