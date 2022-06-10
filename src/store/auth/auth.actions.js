@@ -6,6 +6,7 @@ import {
   LOGOUT,
 } from "./auth.types";
 
+// thunk which will help us
 export const login = (data) => (dispatch) => {
   dispatch({ type: LOGIN_LOADING });
   axios
