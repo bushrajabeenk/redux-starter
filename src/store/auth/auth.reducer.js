@@ -5,11 +5,15 @@ import {
   LOGOUT,
 } from "./auth.types";
 
+let token = localStorage.getItem("token");
+
 const initState = {
   loading: false,
   error: false,
-  isAuth: false,
-  token: "",
+  // isAuth: token ? true : false,
+  // to conver string to boolean value
+  isAuth: !!token,
+  token: token,
 };
 
 export const authReducer = (state = initState, { type, payload }) => {
@@ -22,6 +26,7 @@ export const authReducer = (state = initState, { type, payload }) => {
       };
     }
     case LOGIN_SUCCESS: {
+      localStorage.setItem("token", payload.token);
       return {
         ...state,
         loading: false,
@@ -39,9 +44,11 @@ export const authReducer = (state = initState, { type, payload }) => {
       };
     }
     case LOGOUT: {
+      localStorage.removeItem("token");
       return {
         ...state,
         isAuth: false,
+        token: ""
       };
     }
     default: {

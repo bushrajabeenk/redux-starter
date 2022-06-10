@@ -7,7 +7,7 @@ import {
 } from "./auth.types";
 
 // thunk which will help us
-export const login = (data) => (dispatch) => {
+export const loginAPI = (data) => (dispatch) => {
   dispatch({ type: LOGIN_LOADING });
   axios
     .post("https://reqres.in/api/login", {
@@ -22,4 +22,4 @@ export const login = (data) => (dispatch) => {
     });
 };
 
-export const logout = () => ({ type: LOGOUT });
+export const logoutAPI = () => ({ type: LOGOUT });
