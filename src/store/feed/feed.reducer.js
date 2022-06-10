@@ -1,27 +1,49 @@
 import {
-  GET_FEEDS_LOADING,
-  GET_FEEDS_SUCCESS,
-  GET_FEEDS_ERROR,
+  GET_FEED_LOADING,
+  GET_FEED_SUCCESS,
+  GET_FEED_ERROR,
 } from "./feed.types";
 
 const initState = {
-  getFeeds: {
+  getFeed: {
     loading: false,
     error: false,
   },
   data: [],
 };
 
-export const feedsReducer = (state = initState, { type, payload }) => {
+export const feedReducer = (state = initState, { type, payload }) => {
   switch (type) {
-    case GET_FEEDS_LOADING: {
-      return { ...state };
+    case GET_FEED_LOADING: {
+      return {
+        ...state,
+        getFeed: {
+          ...state.getFeed,
+          loading: true,
+          error: false,
+        },
+      };
     }
-    case GET_FEEDS_SUCCESS: {
-      return { ...state };
+    case GET_FEED_SUCCESS: {
+      return {
+        ...state,
+        getFeed: {
+          ...state.getFeed,
+          loading: false,
+          error: false,
+        },
+        data: payload,
+      };
     }
-    case GET_FEEDS_ERROR: {
-      return { ...state };
+    case GET_FEED_ERROR: {
+      return {
+        ...state,
+        getFeed: {
+          ...state.getFeed,
+          loading: false,
+          error: true,
+        },
+      };
     }
     default: {
       return state;

@@ -1,19 +1,19 @@
 import axios from "axios";
 import {
-  GET_FEEDS_LOADING,
-  GET_FEEDS_SUCCESS,
-  GET_FEEDS_ERROR,
+  GET_FEED_LOADING,
+  GET_FEED_SUCCESS,
+  GET_FEED_ERROR,
 } from "./feed.types";
 
 // thunk which will help us
-export const getFeeds = () => (dispatch) => {
-  dispatch({ type: GET_FEEDS_LOADING });
+export const getFeed = () => (dispatch) => {
+  dispatch({ type: GET_FEED_LOADING });
   axios
     .get("http://localhost:8080/feeds")
     .then((r) => {
-      dispatch({ type: GET_FEEDS_SUCCESS, payload: r.data });
+      dispatch({ type: GET_FEED_SUCCESS, payload: r.data });
     })
     .catch(() => {
-      dispatch({ type: GET_FEEDS_ERROR });
+      dispatch({ type: GET_FEED_ERROR });
     });
 };

@@ -1,3 +1,3 @@
-export const GET_FEEDS_LOADING = "feed/getFeeds/loading";
-export const GET_FEEDS_SUCCESS = "feed/getFeeds/success";
-export const GET_FEEDS_ERROR = "feed/getFeeds/error";
+export const GET_FEED_LOADING = "feed/getFeed/loading";
+export const GET_FEED_SUCCESS = "feed/getFeed/success";
+export const GET_FEED_ERROR = "feed/getFeed/error";
