@@ -6,7 +6,7 @@ import {
 } from "./feed.types";
 
 // thunk which will help us
-export const getFeed = () => (dispatch) => {
+export const getFeedAPI = () => (dispatch) => {
   dispatch({ type: GET_FEED_LOADING });
   axios
     .get("http://localhost:8080/feeds")
