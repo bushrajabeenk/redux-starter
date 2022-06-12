@@ -37,6 +37,7 @@ const Login = () => {
       // <Navigate to={`location.pathname || "/"`} replace={true} />
     }
   }, [isAuth]);
+  
   return (
     <div>
       Login
