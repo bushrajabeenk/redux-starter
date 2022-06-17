@@ -13,4 +13,10 @@ const rootReducer = combineReducers({
   feed: feedReducer,
 });
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+const createComposer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// this line checks if we have installed the compose or not, if not then don't add the compose function
+
+export const store = createStore(
+  rootReducer,
+  createComposer(applyMiddleware(thunk))
+);
